@@ -1,0 +1,1 @@
+export default function DevelopersPage() { return <div className="py-24 text-center"><h1 className="text-3xl font-bold text-text-primary">Developers</h1><p className="mt-4 text-text-muted">Developer page — to be built in next session.</p></div>; }
