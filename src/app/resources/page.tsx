@@ -1,0 +1,1 @@
+export default function ResourcesPage() { return <div className="py-24 text-center"><h1 className="text-3xl font-bold text-text-primary">Resources</h1><p className="mt-4 text-text-muted">Resources page — to be built in next session.</p></div>; }

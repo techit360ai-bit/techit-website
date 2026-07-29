@@ -1,0 +1,1 @@
+export default function RoadmapPage() { return <div className="py-24 text-center"><h1 className="text-3xl font-bold text-text-primary">Roadmap</h1><p className="mt-4 text-text-muted">Roadmap page — to be built in next session.</p></div>; }
