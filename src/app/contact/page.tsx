@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Mail, MapPin, Phone, Check, LoaderCircle } from "lucide-react";
 import { company } from "@/data/navigation";
+import { formspree, submitToFormspree } from "@/lib/formspree";
 
 const topics = [
   "General enquiry",
@@ -29,6 +30,7 @@ type ContactForm = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -40,10 +42,16 @@ export default function ContactPage() {
   });
 
   async function onSubmit(data: ContactForm) {
-    // Placeholder submit — wire to Resend / API route when backend is ready.
-    await new Promise((r) => setTimeout(r, 700));
-    console.log("Contact submission:", data);
-    setSubmitted(true);
+    setError(null);
+    try {
+      await submitToFormspree(formspree.contact, {
+        ...data,
+        _subject: `TechIT contact — ${data.topic}`,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    }
   }
 
   const fieldClass =
@@ -172,6 +180,11 @@ export default function ContactPage() {
                 {isSubmitting && <LoaderCircle className="h-4 w-4 animate-spin" />}
                 {isSubmitting ? "Sending…" : "Send message"}
               </button>
+              {error && (
+                <p className="text-center text-sm text-red-600" role="alert">
+                  {error}
+                </p>
+              )}
             </form>
           )}
         </div>

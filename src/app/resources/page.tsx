@@ -13,6 +13,7 @@ import {
   ChevronDown,
   ArrowRight,
 } from "lucide-react";
+import { formspree, submitToFormspree } from "@/lib/formspree";
 
 const resourceCards = [
   {
@@ -39,8 +40,8 @@ const resourceCards = [
   {
     icon: FileDown,
     title: "Pitch Deck",
-    desc: "The full investor pitch deck for TechIT Network.",
-    href: "/investors",
+    desc: "Request the full investor pitch deck for TechIT Network.",
+    href: "/contact",
     cta: "Request deck",
   },
 ];
@@ -155,12 +156,23 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
+  const [busy, setBusy] = useState(false);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.includes("@")) return;
-    // Placeholder — wire to email provider when backend is ready.
-    setDone(true);
+    setBusy(true);
+    try {
+      await submitToFormspree(formspree.newsletter, {
+        email,
+        _subject: "TechIT newsletter signup",
+      });
+    } catch {
+      // Non-critical: still acknowledge so the user isn't blocked.
+    } finally {
+      setBusy(false);
+      setDone(true);
+    }
   }
 
   if (done) {
@@ -183,9 +195,10 @@ function NewsletterForm() {
       />
       <button
         type="submit"
-        className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-digital-blue-900 hover:bg-digital-blue-50 transition-colors"
+        disabled={busy}
+        className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-digital-blue-900 hover:bg-digital-blue-50 disabled:opacity-60 transition-colors"
       >
-        Subscribe <Send className="h-4 w-4" />
+        {busy ? "Subscribing…" : "Subscribe"} <Send className="h-4 w-4" />
       </button>
     </form>
   );

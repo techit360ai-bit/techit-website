@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, Sparkles } from "lucide-react";
 import { tiers, creditPacks } from "@/data/pricing";
+import { whatsappGroupUrl } from "@/data/navigation";
 
 const faqs = [
   {
@@ -190,12 +191,14 @@ export default function PricingPage() {
       <div className="mt-20 text-center">
         <h2 className="text-2xl font-bold text-text-primary">Start building today</h2>
         <p className="mt-2 text-text-muted">Join the private beta — free to explore.</p>
-        <Link
-          href="/waitlist"
+        <a
+          href={whatsappGroupUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-6 inline-flex items-center rounded-lg bg-digital-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-digital-blue-600 transition-colors"
         >
           Join Private Beta
-        </Link>
+        </a>
       </div>
     </div>
   );

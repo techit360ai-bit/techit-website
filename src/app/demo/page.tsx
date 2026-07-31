@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { AnimatePresence, motion, useInView } from "framer-motion";
+import { whatsappGroupUrl } from "@/data/navigation";
 import {
   ArrowRight,
   Brain,
@@ -125,12 +125,14 @@ export default function DemoPage() {
       {/* CTA */}
       <div className="mt-10 text-center">
         <p className="text-text-muted">Ready to run this on your own startup?</p>
-        <Link
-          href="/waitlist"
+        <a
+          href={whatsappGroupUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-digital-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-digital-blue-600 transition-colors"
         >
           Join the Private Beta <ArrowRight className="h-4 w-4" />
-        </Link>
+        </a>
       </div>
     </div>
   );
