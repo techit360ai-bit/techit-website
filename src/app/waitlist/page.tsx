@@ -240,9 +240,9 @@ export default function WaitlistPage() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.25 }}
             >
-              <h2 className="text-lg font-semibold text-text-primary">What's your email?</h2>
+              <h2 className="text-lg font-semibold text-text-primary">What&apos;s your email?</h2>
               <p className="mt-1 text-sm text-text-muted">
-                We'll notify you the moment your access is ready.
+                We&apos;ll notify you the moment your access is ready.
               </p>
               <input
                 {...register("email")}
@@ -294,9 +294,9 @@ export default function WaitlistPage() {
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-digital-blue-500 text-white">
                 <Check className="h-8 w-8" />
               </div>
-              <h2 className="mt-6 text-2xl font-bold text-text-primary">You're on the list!</h2>
+              <h2 className="mt-6 text-2xl font-bold text-text-primary">You&apos;re on the list!</h2>
               <p className="mt-2 text-text-muted">
-                We'll email <span className="font-medium text-text-primary">{entry.email}</span>{" "}
+                We&apos;ll email <span className="font-medium text-text-primary">{entry.email}</span>{" "}
                 when your access opens.
               </p>
 
