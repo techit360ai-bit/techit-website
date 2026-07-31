@@ -3,7 +3,6 @@ export const mainNav = [
   { label: "Solutions", href: "/solutions" },
   { label: "Demo", href: "/demo" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Investors", href: "/investors" },
   { label: "Team", href: "/team" },
   { label: "Roadmap", href: "/roadmap" },
   { label: "Developers", href: "/developers" },
@@ -26,7 +25,6 @@ export const footerNav = {
   company: [
     { label: "About", href: "/#about" },
     { label: "Team", href: "/team" },
-    { label: "Investors", href: "/investors" },
     { label: "Contact", href: "/contact" },
   ],
   developers: [
@@ -50,21 +48,23 @@ export const footerNav = {
   ],
 };
 
+// WhatsApp community group — primary "Join Private Beta" destination.
+export const whatsappGroupUrl = "https://chat.whatsapp.com/IZ3V4xXEBl6IiRWZ7tpGc4";
+
 export const socialLinks = [
-  { label: "LinkedIn", href: "#", icon: "linkedin" },
-  { label: "GitHub", href: "#", icon: "github" },
-  { label: "YouTube", href: "#", icon: "youtube" },
-  { label: "X", href: "#", icon: "twitter" },
-  { label: "Discord", href: "#", icon: "disc" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/19484791/", icon: "linkedin" },
+  { label: "WhatsApp", href: whatsappGroupUrl, icon: "whatsapp" },
 ];
 
 export const company = {
   name: "TechIT Network",
   tagline: "The AI Operating System for Building Startups.",
   supportingTagline: "Build. Validate. Execute. Raise.",
-  email: "hello@techit.network",
-  phone: "+234 906 699 6561",
-  location: "Lagos, Nigeria",
+  email: "anthony@techitnetwork.com",
+  phone: "09038721513",
+  location: "Otukpo, Nigeria",
   website: "https://www.techit.network",
   partner: "Otukpo Tech Academy",
+  whatsappGroupUrl,
+  linkedin: "https://www.linkedin.com/company/19484791/",
 };

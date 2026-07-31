@@ -26,9 +26,10 @@ export const organizationSchema = {
     "The AI operating system for building startups. Build, validate, execute, and prepare your startup for investment through one intelligent workspace.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Lagos",
+    addressLocality: "Otukpo",
     addressCountry: "NG",
   },
+  sameAs: [company.linkedin, company.whatsappGroupUrl],
 };
 
 export const softwareApplicationSchema = {

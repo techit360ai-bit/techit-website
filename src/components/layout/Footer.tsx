@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerNav, company } from "@/data/navigation";
+import { footerNav, socialLinks, company } from "@/data/navigation";
 
 export function Footer() {
   return (
@@ -15,6 +15,19 @@ export function Footer() {
             <p className="mt-4 text-xs text-text-muted">{company.email}</p>
             <p className="text-xs text-text-muted">{company.phone}</p>
             <p className="text-xs text-text-muted">{company.location}</p>
+            <div className="mt-4 flex gap-3">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-medium text-text-muted hover:text-digital-blue-500 transition-colors"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </div>
 
           <FooterColumn title="Product" links={footerNav.product} />

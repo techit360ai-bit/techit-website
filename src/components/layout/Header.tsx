@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { mainNav, company } from "@/data/navigation";
+import { mainNav, company, whatsappGroupUrl } from "@/data/navigation";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -30,15 +30,14 @@ export function Header() {
 
         {/* Desktop actions */}
         <div className="hidden lg:flex items-center gap-3">
-          <Link href="/waitlist" className="text-sm font-medium text-text-primary hover:text-digital-blue-500">
-            Sign In
-          </Link>
-          <Link
-            href="/waitlist"
+          <a
+            href={whatsappGroupUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-lg bg-digital-blue-500 px-4 py-2 text-sm font-semibold text-white hover:bg-digital-blue-600 transition-colors"
           >
             Join Private Beta
-          </Link>
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -67,13 +66,15 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/waitlist"
+            <a
+              href={whatsappGroupUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-4 block rounded-lg bg-digital-blue-500 px-4 py-3 text-center text-sm font-semibold text-white"
             >
               Join Private Beta
-            </Link>
+            </a>
           </nav>
         </div>
       )}

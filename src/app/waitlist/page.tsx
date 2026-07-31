@@ -17,6 +17,7 @@ import {
   Building2,
   Sparkles,
 } from "lucide-react";
+import { formspree, submitToFormspree } from "@/lib/formspree";
 
 // --- Roles -----------------------------------------------------------------
 
@@ -114,6 +115,16 @@ export default function WaitlistPage() {
     } catch {
       // storage may be unavailable; still show confirmation
     }
+    // Fire-and-forget: record the signup, but never block the confirmation UX.
+    submitToFormspree(formspree.waitlist, {
+      role: stored.role,
+      email: stored.email,
+      referral: stored.referral ?? "",
+      referralCode: stored.code,
+      _subject: "TechIT waitlist signup",
+    }).catch(() => {
+      /* swallow — the local confirmation is the source of truth for the user */
+    });
     setEntry(stored);
     setStep(3);
   };

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { roadmap, type RoadmapItem } from "@/data/roadmap";
+import { whatsappGroupUrl } from "@/data/navigation";
 
 export const metadata: Metadata = {
   title: "Roadmap",
@@ -101,12 +102,14 @@ export default function RoadmapPage() {
         <h2 className="text-2xl font-bold text-text-primary">Want to shape what we build?</h2>
         <p className="mt-2 text-text-muted">Join the private beta and tell us what you need.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/waitlist"
+          <a
+            href={whatsappGroupUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center rounded-lg bg-digital-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-digital-blue-600 transition-colors"
           >
             Join Private Beta
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="inline-flex items-center rounded-lg border border-digital-blue-200 px-6 py-3 text-sm font-semibold text-digital-blue-600 hover:bg-digital-blue-50 transition-colors"

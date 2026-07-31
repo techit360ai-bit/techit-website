@@ -3,6 +3,7 @@ import { ArrowRight, Brain, Target, TrendingUp, Shield, Users, Zap, BarChart3, R
 import { Reveal } from "@/components/Reveal";
 import { ProductVideo } from "@/components/home/ProductVideo";
 import { ContextualIntelligence } from "@/components/home/ContextualIntelligence";
+import { whatsappGroupUrl } from "@/data/navigation";
 
 export default function Home() {
   return (
@@ -18,9 +19,9 @@ export default function Home() {
               Build, validate, execute, and prepare your startup for investment through one intelligent workspace that understands your venture, tracks your progress, identifies execution gaps, and recommends what to do next.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/waitlist" className="rounded-lg bg-digital-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-digital-blue-600 transition-colors">
+              <a href={whatsappGroupUrl} target="_blank" rel="noopener noreferrer" className="rounded-lg bg-digital-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-digital-blue-600 transition-colors">
                 Join Private Beta
-              </Link>
+              </a>
               <Link href="/demo" className="rounded-lg border border-digital-blue-200 px-6 py-3 text-sm font-semibold text-digital-blue-600 hover:bg-digital-blue-50 transition-colors">
                 See Live Demo
               </Link>
@@ -222,9 +223,9 @@ export default function Home() {
           <h2 className="text-3xl font-bold">Start building your startup the right way.</h2>
           <p className="mt-4 text-digital-blue-200 max-w-xl mx-auto">Join the private beta and get access to the full AI-powered startup execution platform.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="/waitlist" className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-digital-blue-900 hover:bg-digital-blue-50 transition-colors">
+            <a href={whatsappGroupUrl} target="_blank" rel="noopener noreferrer" className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-digital-blue-900 hover:bg-digital-blue-50 transition-colors">
               Join Private Beta
-            </Link>
+            </a>
             <Link href="/demo" className="rounded-lg border border-digital-blue-400 px-6 py-3 text-sm font-semibold text-white hover:bg-digital-blue-800 transition-colors">
               Try the Demo
             </Link>
