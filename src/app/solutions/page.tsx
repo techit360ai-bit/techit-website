@@ -172,10 +172,12 @@ export default function SolutionsPage() {
       </div>
 
       {/* Tabs */}
-      <div className="mt-12 flex flex-wrap justify-center gap-2">
+      <div className="mt-12 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Audience">
         {solutions.map((s) => (
           <button
             key={s.id}
+            role="tab"
+            aria-selected={active === s.id}
             onClick={() => setActive(s.id)}
             className={`rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${
               active === s.id

@@ -82,10 +82,12 @@ export default function DemoPage() {
       </div>
 
       {/* Tab bar */}
-      <div className="mt-10 flex flex-wrap justify-center gap-2">
+      <div className="mt-10 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Demo sections">
         {tabs.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
+            role="tab"
+            aria-selected={active === id}
             onClick={() => setActive(id)}
             className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${
               active === id
@@ -93,14 +95,17 @@ export default function DemoPage() {
                 : "border border-digital-blue-100 text-text-primary hover:bg-digital-blue-50"
             }`}
           >
-            <Icon className="h-4 w-4" />
+            <Icon className="h-4 w-4" aria-hidden="true" />
             {label}
           </button>
         ))}
       </div>
 
       {/* Panels */}
-      <div className="mt-8 rounded-2xl border border-digital-blue-100 bg-white p-6 sm:p-10">
+      <div
+        className="mt-8 rounded-2xl border border-digital-blue-100 bg-white p-6 sm:p-10"
+        role="tabpanel"
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={active}

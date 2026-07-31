@@ -5,7 +5,7 @@ import { company } from "@/data/navigation";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Team — TechIT Network",
+  title: "Team",
   description:
     "Meet the team building TechIT Network — the AI operating system for building startups, engineered in Africa for the world.",
 };

@@ -26,12 +26,12 @@
   --foreground: #172B4D;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #001433;
-    --foreground: #e5f0ff;
-  }
-}
+/*
+ * The site currently ships a light theme only (dark mode is a future item).
+ * We intentionally do NOT switch on prefers-color-scheme yet, because the
+ * components use hardcoded light surfaces — flipping only the body would leave
+ * dark gaps behind light content.
+ */
 
 html {
   scroll-behavior: smooth;
@@ -40,4 +40,25 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Consistent, visible keyboard focus across all interactive elements. */
+:focus-visible {
+  outline: 2px solid var(--color-digital-blue-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

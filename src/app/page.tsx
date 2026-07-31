@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Brain, Target, TrendingUp, Shield, Users, Zap, BarChart3, Rocket, Code, FileText, Search, Layers, Activity, Globe } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
+import { ProductVideo } from "@/components/home/ProductVideo";
+import { ContextualIntelligence } from "@/components/home/ContextualIntelligence";
 
 export default function Home() {
   return (
@@ -41,13 +44,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PRODUCT VIDEO */}
+      <ProductVideo />
+
       {/* PRODUCT PREVIEW */}
       <section id="product" className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-16">
             <h2 className="text-3xl font-bold text-text-primary">One workspace. Every startup workflow.</h2>
             <p className="mt-4 text-text-muted max-w-2xl mx-auto">Strategy, execution, research, product development, team activity, and investor preparation—connected to the same startup context.</p>
-          </div>
+          </Reveal>
           <div className="rounded-2xl border border-digital-blue-100 bg-gradient-to-b from-digital-blue-50/50 to-white p-8 sm:p-12">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
               {[
@@ -95,7 +101,9 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-text-primary text-center mb-16">How TechIT Works</h2>
+          <Reveal>
+            <h2 className="text-3xl font-bold text-text-primary text-center mb-16">How TechIT Works</h2>
+          </Reveal>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               { step: "01", title: "Create Your Startup", desc: "Add your idea, problem, target users, market, and current stage." },
@@ -118,8 +126,10 @@ export default function Home() {
       {/* CAPABILITIES */}
       <section className="py-24 bg-digital-blue-50/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-text-primary text-center mb-4">Platform Capabilities</h2>
-          <p className="text-text-muted text-center max-w-2xl mx-auto mb-16">Every workflow a startup needs—connected through persistent context.</p>
+          <Reveal className="mb-16">
+            <h2 className="text-3xl font-bold text-text-primary text-center mb-4">Platform Capabilities</h2>
+            <p className="text-text-muted text-center max-w-2xl mx-auto">Every workflow a startup needs—connected through persistent context.</p>
+          </Reveal>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {capabilities.map(({ title, desc, icon: Icon }) => (
               <div key={title} className="rounded-xl bg-white border border-digital-blue-100 p-6">
@@ -164,6 +174,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CONTEXTUAL INTELLIGENCE */}
+      <ContextualIntelligence />
 
       {/* WHO IT'S FOR */}
       <section className="py-24 bg-digital-blue-50/30">

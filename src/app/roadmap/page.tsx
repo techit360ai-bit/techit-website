@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { roadmap, type RoadmapItem } from "@/data/roadmap";
 
 export const metadata: Metadata = {
-  title: "Roadmap — TechIT Network",
+  title: "Roadmap",
   description:
     "What we're building now, what's next, and what we're exploring. The TechIT Network product roadmap.",
 };
