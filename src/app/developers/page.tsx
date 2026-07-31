@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Code, Boxes, Plug, Puzzle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Developers — TechIT Network",
+  title: "Developers",
   description:
     "Build on TechIT. API, SDK, MCP server, and a plugin ecosystem for the AI operating system for startups.",
 };

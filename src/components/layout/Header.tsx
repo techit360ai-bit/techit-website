@@ -42,14 +42,20 @@ export function Header() {
         </div>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <button
+          className="lg:hidden p-2"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+        >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {/* Mobile drawer */}
       {open && (
-        <div className="lg:hidden border-t border-digital-blue-100 bg-white px-4 pb-6 pt-4">
+        <div id="mobile-menu" className="lg:hidden border-t border-digital-blue-100 bg-white px-4 pb-6 pt-4">
           <nav className="flex flex-col gap-3">
             {mainNav.map((item) => (
               <Link
